@@ -94,7 +94,7 @@ def sum_with_loop(arr)
   for x in arr
     sum += x
   end
-  sum;
+  sum
 end
 
 # Exercise 8: Break and next
