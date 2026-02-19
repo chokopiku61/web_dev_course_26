@@ -9,10 +9,10 @@ unless File.exist?(ARGV[0])
   puts "ОШИБКА! Файл '#{ARGV[0]}' не найден"
   exit 1
 end
-comands = []
+commands = []
 File.open(ARGV[0], 'r') do |file|
   file.each_line do |line|
-    comands << line.gsub(/^\d+\.\s*/, "").strip
+    commands << line.gsub(/^\d+\.\s*/, "").strip
   end
 end
 
@@ -25,9 +25,23 @@ if d1 > d2
 end
 
 all_matchs = []
-comands.combination(2).each do |team1, team2|
-  all_matchs << "#{team1} vs #{team2}"
+(0..commands.size-1).step(2) do |i|
+  all_matchs << "#{commands[i]} vs #{commands[i + 1]}"
 end
+(1..commands.size-2).step(2) do |i|
+  all_matchs << "#{commands[i]} vs #{commands[i + 1]}"
+end
+j = 2
+while j < commands.size
+  i = 0
+  (j..commands.size-1).each do |k|
+    all_matchs << "#{commands[i]} vs #{commands[k]}"
+    i += 1
+  end
+  j += 1
+end
+
+puts "Всего матчей: #{all_matchs.size}"
 
 games_date = []
 d1.upto(d2) do |date|
