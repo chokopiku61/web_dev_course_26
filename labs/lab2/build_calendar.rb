@@ -1,5 +1,14 @@
 require 'date'
 
+if ARGV.size < 4
+  puts "НЕПРАВИЛЬНЫЙ ВЫЗОВ!"
+  exit 1
+end
+
+unless File.exist?(ARGV[0])
+  puts "ОШИБКА! Файл '#{ARGV[0]}' не найден"
+  exit 1
+end
 comands = []
 File.open(ARGV[0], 'r') do |file|
   file.each_line do |line|
@@ -9,6 +18,11 @@ end
 
 d1 = Date.parse(ARGV[1])
 d2 =  Date.parse(ARGV[2])
+
+if d1 > d2
+  puts "ОШИБКА! (#{d1}) позже чем (#{d2})"
+  exit 1
+end
 
 all_matchs = []
 comands.combination(2).each do |team1, team2|
@@ -30,6 +44,7 @@ end
 
 matches_per_day = all_matchs.size.to_f / games_date.size
 puts "Среднне кол-во матчей в день: #{matches_per_day}"
+
 
 File.open(ARGV[3], 'w') do |f|
   games_date.each_with_index do |date, i|
