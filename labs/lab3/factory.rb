@@ -24,7 +24,6 @@ end
 
 class Car < Vehicle
   def initialize
-    # TODO: Call super with appropriate values
     # Car: 4 wheels, 5 passengers
     super("Car", 4, 5)
   end
@@ -32,7 +31,6 @@ end
 
 class Motorcycle < Vehicle
   def initialize
-    # TODO: Call super with appropriate values
     # Motorcycle: 2 wheels, 2 passengers
     super("Motorcycle", 2, 2)
   end
@@ -40,14 +38,12 @@ end
 
 class Truck < Vehicle
   def initialize
-    # TODO: Call super with appropriate values
     # Truck: 6 wheels, 3 passengers
     super("Truck", 6, 3)
   end
 end
 
 class VehicleFactory
-  # TODO: Implement create_vehicle method
   # It should take a symbol (:car, :motorcycle, or :truck)
   # and return an instance of the appropriate class
   # Return nil for unknown types
@@ -76,7 +72,6 @@ class Notification
 end
 
 class EmailNotification < Notification
-  # TODO: Implement send method
   # Return "Email sent: #{message}"
   def send(message)
     "Email sent: #{message}"
@@ -84,7 +79,6 @@ class EmailNotification < Notification
 end
 
 class SMSNotification < Notification
-  # TODO: Implement send method
   # Return "SMS sent: #{message}"
   def send(message)
     "SMS sent: #{message}"
@@ -92,7 +86,6 @@ class SMSNotification < Notification
 end
 
 class PushNotification < Notification
-  # TODO: Implement send method
   # Return "Push notification sent: #{message}"
   def send(message)
     "Push notification sent: #{message}"
@@ -100,7 +93,6 @@ class PushNotification < Notification
 end
 
 class NotificationFactory
-  # TODO: Create a factory method that returns appropriate notification
   # Input: type (:email, :sms, :push)
   # Output: instance of appropriate notification class
   
@@ -130,7 +122,6 @@ end
 class LightButton
   include UIElement
   
-  # TODO: Implement render method
   # Return "Rendering light button"
   def render
     "Rendering light button"
@@ -140,7 +131,6 @@ end
 class DarkButton
   include UIElement
   
-  # TODO: Implement render method
   # Return "Rendering dark button"
   def render
     "Rendering dark button"
@@ -150,7 +140,6 @@ end
 class LightTextField
   include UIElement
   
-  # TODO: Implement render method
   # Return "Rendering light text field"
   def render
     "Rendering light text field"
@@ -160,7 +149,6 @@ end
 class DarkTextField
   include UIElement
   
-  # TODO: Implement render method
   # Return "Rendering dark text field"
   def render
     "Rendering dark text field"
@@ -178,8 +166,6 @@ class ThemeFactory
 end
 
 class LightThemeFactory < ThemeFactory
-  # TODO: Implement create_button to return LightButton
-  # TODO: Implement create_text_field to return LightTextField
   
   def create_button
     LightButton.new
